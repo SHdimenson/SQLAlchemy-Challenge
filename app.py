@@ -30,8 +30,6 @@ Station = Base.classes.station
 app = Flask(__name__)
 
 # set-up all the routes 
-
-
 @app.route("/api/v1.0/precipitation")
 def percipation():
     # Create our session (thread) from Python to the DB
@@ -45,8 +43,7 @@ def percipation():
     session.close()
 
     return dict(percipitation_data)
-    
-    
+        
 
 @app.route("/api/v1.0/stations")
 def stations():
@@ -114,7 +111,6 @@ def range_date(start_date, end_date):
     result = session.query(Measurement.date, func.min(Measurement.tobs), func.max(Measurement.tobs), func.avg(Measurement.tobs)).\
                 filter(Measurement.date >= start_date).filter(Measurement.date <= start_date)[0]
 
-     
     session.close()
     
     aggre = {}
@@ -130,8 +126,7 @@ def questions():
             <center>
             <img src="/static/silly.png", alt="There you go!!!", width="700",height="680" />
             </center>
-            
-        </html>"""
+            </html>"""
 
 # set-up Home routes
 @app.route("/")
@@ -144,7 +139,7 @@ def welcomepage():
                                 <p><i>Below are the analysis performed on the Hawaii Climate data: </i></p>
                                 
                                 <dl><dt><li><b>Percipitation Data</b></li></dt>
-                                    <dd><a href="/api/v1.0/precipitation" target = "_blank">Percipation(last 12-months)</a></dd>
+                                    <dd><a href="/api/v1.0/precipitation" target = "_blank">Percipitation(last 12-months)</a></dd>
                                     <dd> Reurns 'Date' & 'Percipitation' for last 12-month period</dd>
                                 </dl>
                                 
@@ -169,8 +164,5 @@ def welcomepage():
                                 </dl>
             </html>"""
 
-
-    
-   
 if __name__ == '__main__':
     app.run(debug=True)
