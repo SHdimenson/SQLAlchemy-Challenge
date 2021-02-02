@@ -133,35 +133,38 @@ def questions():
 def welcomepage():
     return """<html>
                         <h1>Welcome to Hawaii Climate Analysis!!!</h1>
-                        <h4> By Shilpa...</h4>
+                        <aside> By Shilpa...</aside>
                         <a href = "http://climate.geography.hawaii.edu/interactivemap.html" target = "_blank" ><img src="/static/hawaii_climate.png",width="718" height="135", alt="Hawaii Climate Analysis"/></a>
-                        <h2><b>Analysis</b><img src="/static/Hawaii_surfing2.png",width="300",height="115", style="float:right", alt="Surf's up!!!"></h2>
+                        <section><h2><b>Analysis</b><img src="/static/Hawaii_surfing2.png",width="300",height="115", style="float:right", alt="Surf's up!!!"></h2>
                                 <p><i>Below are the analysis performed on the Hawaii Climate data: </i></p>
                                 
-                                <dl><dt><li><b>Percipitation Data</b></li></dt>
+                                <article>
+                                <dt><li><b>Percipitation Data</b></li></dt>
                                     <dd><a href="/api/v1.0/precipitation" target = "_blank">Percipitation(last 12-months)</a></dd>
-                                    <dd> Reurns 'Date' & 'Percipitation' for last 12-month period</dd>
-                                </dl>
+                                    <dd> <mark>Reurns 'Date' & 'Percipitation' for last 12-month period</mark></dd>
+                                </article>
                                 
                                 <dl><dt><li><b>Stations Data</b></li></dt>
                                     <dd><a href="/api/v1.0/stations" target = "_blank">Most active Stations</a></dd>
-                                    <dd>Returns List of Station 'id's' & 'station names' in Hawaii </dd>
+                                    <dd><mark>Returns List of Station 'id's' & 'station names' in Hawaii </mark></dd>
                                 </dl>
                                 
                                 <dl><dt><li><b>Temperature of Bias(Tobs)</b></li></dt>
                                     <dd><a href="/api/v1.0/tobs" target = "_blank">Temperature of Bias for last 12-months</a></dd>
-                                    <dd>Returns 'Date' & 'Temperature' of most active station in the last 12 month period </dd>
+                                    <dd><mark>Returns 'Date' & 'Temperature' of most active station in the last 12 month period </mark></dd>
                                 </dl>
                                 
                                 <dl><dt><li><b>MIN, MAX & AVERAGE Temperatures</b></li></dt>
                                     <dd><a href="/api/v1.0/2016-8-23" target = "_blank">Temperature Aggregations starting 2016-8-23</a></dd>
                                     <dd><a href="/api/v1.0/2017-6-23/2017-8-15" target = "_blank">Temperature Aggregations from 2016-8-23 to 2017-1-15</a></dd>
-                                    <dd>Returns 'Min', 'Max' & 'Average' for the given date or range of dates</dd>
+                                    <dd><mark>Returns 'Min', 'Max' & 'Average' for the given date or range of dates</mark></dd>
                                 </dl>
-
-                                <dl><dt><li><b>Question & Concerns</b></li></dt>
-                                    <dd><a href="/api/v1.0/questions" target = "_blank">Have Questions?? Contact-us here</a></dd>
+                        </section>
+                        <section><h2><b>Question & Concerns</b></h2>
+                                <dl>
+                                    <dd><h3><a href="/api/v1.0/questions" target = "_blank">Have Questions?? Contact-us here</a></h3></dd>
                                 </dl>
+                        </section>
             </html>"""
 
 if __name__ == '__main__':
